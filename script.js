@@ -63,4 +63,19 @@ document.addEventListener('DOMContentLoaded', function() {
     navbarLinks.classList.toggle('active');
   }
   
+  function searchRecipes() {
+    const searchTerm = document.getElementById("search-input").value.toLowerCase();
+    const recipeCards = document.querySelectorAll(".recipe-card");
+  
+    recipeCards.forEach(card => {
+      const recipeName = card.querySelector("[data-name]").textContent.toLowerCase();
+  
+      if (recipeName.includes(searchTerm)) {
+        card.style.display = "block"; // Show the card
+      } else {
+        card.style.display = "none";  // Hide the card
+      }
+    });
+  }
+  
   

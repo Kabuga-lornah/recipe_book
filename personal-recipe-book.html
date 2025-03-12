@@ -135,32 +135,37 @@
     </style>
   </head>
   <body>
-    <!-- Navbar -->
-    <nav class="navbar">
-      <div class="navbar-container">
-        <div class="navbar-logo">
-          <img src="images/logo.png" alt="logo" />
+    
+ <!-- Navbar -->
+ <nav class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-logo">
+      <img src="images/logo.png" alt="logo" />
+    </div>
+    <ul class="navbar-links">
+      <li><a href="home.html" class="active">HOME</a></li>
+      <li class="dropdown">
+        <a href="#">RECIPES</a>
+        <div class="dropdown-content">
+          <a href="breakfast.html">Breakfast</a>
+          <a href="lunch.html">Lunch</a>
+          <a href="dinner.html">Dinner</a>
         </div>
-        <ul class="navbar-links">
-          <li><a href="home.html" class="active">HOME</a></li>
-          <li class="dropdown">
-            <a href="#">RECIPES</a>
-            <div class="dropdown-content">
-              <a href="breakfast.html">Breakfast</a>
-              <a href="lunch.html">Lunch</a>
-              <a href="dinner.html">Dinner</a>
-            </div>
-          </li>
-          <li><a href="personal-recipe-book.html">MY RECIPES</a></li>
-        </ul>
-        <a href="signuplogin.html"><i class="fa-regular fa-user"></i></a>
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <div class="menu-icon" onclick="toggleMenu()">
-          <i class="fa-solid fa-bars"></i>
-        </div>
+        <li><a href="personal-recipe-book.html">MY RECIPES</a></li>
+      </li>
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search recipes...">
+        <button onclick="searchRecipes()"><i class="fa-solid fa-magnifying-glass"></i></button>
       </div>
-      <hr>
-    </nav>
+
+    </ul>
+    <a href="signuplogin.html"><i class="fa-regular fa-user"></i></a>
+    <div class="menu-icon" onclick="toggleMenu()">
+      <i class="fa-solid fa-bars"></i>
+    </div>
+  </div>
+  <hr>
+</nav>
 
     <!-- Main Content -->
     <div class="container">
@@ -285,6 +290,47 @@
           });
       }
   });
+  function toggleMenu() {
+  const navbarLinks = document.querySelector(".navbar-links");
+  navbarLinks.classList.toggle("active");
+}
+
+function saveRecipe(element) {
+  // Find the parent recipe-card element
+  let recipeCard = element.closest(".recipe-card");
+
+  if (recipeCard) {
+    // Extract recipe details
+    let recipeName = recipeCard.querySelector("[data-name]").innerText;
+    let recipeInstructions = recipeCard.querySelector(
+      "[data-instructions]"
+    ).innerText;
+
+    // You can now use recipeName and recipeInstructions as needed
+    console.log("Recipe Name:", recipeName);
+    console.log("Instructions:", recipeInstructions);
+
+    // You can add your logic here to save the recipe,
+    // e.g., store it in localStorage, send it to a server, etc.
+    alert("Recipe saved: " + recipeName); // Placeholder for demonstration
+  } else {
+    console.error("Could not find the recipe card.");
+  }
+}
+function shareRecipe(title, instructions) {
+  const facebookURL = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+    window.location.href
+  )}&quote=${encodeURIComponent(`${title}: ${instructions}`)}`;
+  window.open(facebookURL, "_blank");
+}
+
+function shareTwitter(title) {
+  const twitterURL = `https://twitter.com/intent/tweet?text=${encodeURIComponent(
+    `Check out this recipe: ${title} ${window.location.href}`
+  )}`;
+  window.open(twitterURL, "_blank");
+}
+
 </script>
   </body>
 </html>
