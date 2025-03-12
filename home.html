@@ -4,33 +4,65 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="script.js" />
     <link rel="stylesheet" href="style.css" />
     <style>
+      /* General Styles */
+      body {
+        font-family: "Playfair Display", serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f8f8;
+        color: #333;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        color: purple;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+      /* Main Content Styles */
       .simple {
         display: flex;
-        grid-template-columns: repeat(1fr);
         justify-content: space-between;
         padding: 2%;
+        gap: 20px;
+        flex-wrap: wrap;
       }
+
+      .simple img {
+        width: 100%;
+        max-width: 250px;
+        height: 350px;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+
       .simple p {
         text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 10px;
+        color: purple;
       }
-      .simple img {
-        width: 250px;
-        height: 350px;
-      }
+
       .popular {
         display: flex;
-        grid-template-columns: repeat 9 (1fr);
-        flex-direction: row;
-        align-items: center;
+        justify-content: center;
         gap: 20px;
+        flex-wrap: wrap;
+        padding: 2%;
       }
 
       .popular div {
@@ -42,6 +74,7 @@
         height: 100px;
         border-radius: 50%;
         object-fit: cover;
+        border: 2px solid purple;
       }
 
       .popular p {
@@ -50,21 +83,69 @@
         font-weight: bold;
         color: #333;
       }
-      .vegetarian{
+
+      .vegetarian {
         display: flex;
-        text-align: center;
-        gap: 3%;
+        justify-content: space-between;
+        gap: 20px;
         padding: 2%;
-       
+        flex-wrap: wrap;
       }
-      .vegetarian img{
-        width: 260px;
+
+      .vegetarian img {
+        width: 100%;
+        max-width: 260px;
         height: 300px;
+        border-radius: 10px;
+        object-fit: cover;
       }
-      .quick{
+
+      .vegetarian p {
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 10px;
+        color: purple;
+      }
+
+      .quick {
         display: flex;
         justify-content: center;
         gap: 5%;
+        padding: 2%;
+        font-size: 20px;
+        font-weight: bold;
+        color: purple;
+      }
+
+      hr {
+        border: 0;
+        height: 1px;
+        background: #ddd;
+        margin: 20px 0;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .navbar-links {
+          display: none;
+        }
+
+        .menu-icon {
+          display: block;
+        }
+
+        .simple,
+        .popular,
+        .vegetarian {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .quick {
+          flex-direction: column;
+          text-align: center;
+        }
       }
     </style>
   </head>
@@ -76,19 +157,32 @@
           <img src="images/logo.png" alt="logo" />
         </div>
         <ul class="navbar-links">
-          <li><a href="home.html" id="home-link">HOME</a></li>
-          <li><a href="about.html" id="about-link">ABOUT</a></li>
-          <li><a href="recipes.html" id="recipes-link">RECIPES</a></li>
-          <li><a href="start-here.html" id="start-link">START HERE</a></li>
+          <li><a href="home.html" class="active">HOME</a></li>
+          <li class="dropdown">
+            <a href="#">RECIPES</a>
+            <div class="dropdown-content">
+              <a href="breakfast.html">Breakfast</a>
+              <a href="lunch.html">Lunch</a>
+              <a href="dinner.html">Dinner</a>
+            </div>
+          </li>
+          
         </ul>
+        <a href="signuplogin.html"><i class="fa-regular fa-user"></i></a>
         <i class="fa-solid fa-magnifying-glass"></i>
         <div class="menu-icon" onclick="toggleMenu()">
           <i class="fa-solid fa-bars"></i>
         </div>
       </div>
+      <hr>
     </nav>
 
-    <div>Simple recipes made for real, actual, everyday life</div>
+    <!-- Main Content -->
+    <div style="text-align: center; font-size: 24px; font-weight: bold; padding: 20px;">
+      Simple recipes made for real, actual, everyday life
+    </div>
+
+    <!-- Simple Recipes Section -->
     <div class="simple">
       <div>
         <img src="images/healthy.webp" alt="healthy" />
@@ -104,13 +198,15 @@
       </div>
       <div>
         <img src="images/vegetarian.jpg" alt="VEGETARIAN" />
-        <p>VEGETERIAN</p>
+        <p>VEGETARIAN</p>
       </div>
     </div>
-    <br>
-    <hr>
-    <br>
-    <!-- end of first photos  -->
+
+    <br />
+    <hr />
+    <br />
+
+    <!-- Popular Recipes Section -->
     <div class="popular">
       <div>
         <img src="images/quick and easy.jpg" alt="quick and easy" />
@@ -129,7 +225,7 @@
         <p>HEALTHY</p>
       </div>
       <div>
-        <img src="images/instatnt pot.jpg" alt="instant " />
+        <img src="images/instatnt pot.jpg" alt="instant" />
         <p>INSTANT POT</p>
       </div>
       <div>
@@ -149,34 +245,73 @@
         <p>SALADS</p>
       </div>
     </div>
-    <br>
-    <br>
-    <hr>
-    <br>
-<!-- end of popular -->
- <div class="quick">
-    <div>VEGETARIAN</div>
-    <div>QUICK + EASY</div>
-    <div>POPULAR ON PINTREST</div>
- </div>
- <br>
- <div class="vegetarian">
- <div>
-    <img src="images/brussels.jpg" alt="brussels">
-    <p>Brussels Sprouts with<br> Gochujang Butter</p>
- </div>
- <div>
-    <img src="images/Scallion.webp" alt="Scallion">
-    <p>Scallion Pancake with Eggs</p>
- </div>
- <div>
-    <img src="images/homemade.webp" alt="home">
-    <p>Homemade Alfredo Sauce</p>
- </div>
- <div>
-    <img src="images/sticky.webp" alt="sticky">
-    <p>Sticky Gochujang Tofu with<br> Herbs and Peanuts</p>
- </div>
-</div>
+
+    <br />
+    <br />
+    <hr />
+    <br />
+
+    <!-- Quick + Easy Section -->
+    <div class="quick">
+      <div>VEGETARIAN</div>
+      <div>QUICK + EASY</div>
+      <div>POPULAR ON PINTEREST</div>
+    </div>
+<hr>
+    <br />
+
+    <!-- Vegetarian Recipes Section -->
+    <div class="vegetarian">
+      <div>
+        <img src="images/brussels.jpg" alt="brussels" />
+        <p>Brussels Sprouts with<br />Gochujang Butter</p>
+      </div>
+      <div>
+        <img src="images/Scallion.webp" alt="Scallion" />
+        <p>Scallion Pancake with Eggs</p>
+      </div>
+      <div>
+        <img src="images/homemade.webp" alt="home" />
+        <p>Homemade Alfredo Sauce</p>
+      </div>
+      <div>
+        <img src="images/sticky.webp" alt="sticky" />
+        <p>Sticky Gochujang Tofu with<br />Herbs and Peanuts</p>
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <!-- Footer Links -->
+        <div class="footer-links">
+          <a href="about.html">About Us</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Service</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+          <a href="https://facebook.com" target="_blank"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="https://twitter.com" target="_blank"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="https://instagram.com" target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://pinterest.com" target="_blank"
+            ><i class="fab fa-pinterest"></i
+          ></a>
+        </div>
+<hr>
+        <!-- Copyright Notice -->
+        <div class="footer-bottom">
+          &copy; 2023 Recipe Book. All rights reserved.
+        </div>
+      </div>
+    </footer>
   </body>
+
 </html>

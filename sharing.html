@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Sharing</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 20px;
+    }
+    
+    .recipe {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h1 {
+        font-size: 24px;
+    }
+    
+    button {
+        margin-top: 10px;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+    }
+    
+    button:hover {
+        background-color: #0056b3;
+    }
+</style>    
+</head>
+<body>
+    <div class="recipe">
+        <h1 id="recipe-title">Delicious Pancakes</h1>
+        <p id="recipe-description">A simple and fluffy pancake recipe that everyone will love!</p>
+        <button id="share-facebook" onclick="shareOnFacebook()">Share on Facebook</button>
+        <button id="share-twitter" onclick="shareOnTwitter()">Share on Twitter</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+    function shareOnFacebook() {
+        const title = document.getElementById('recipe-title').innerText;
+        const description = document.getElementById('recipe-description').innerText;
+    
+        const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(title + ' - ' + description)}`;
+        
+        window.open(facebookUrl, '_blank');
+    }
+    
+    function shareOnTwitter() {
+        const title = document.getElementById('recipe-title').innerText;
+    
+        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(window.location.href)}`;
+        
+        window.open(twitterUrl, '_blank');
+    }
+</script>
+</body>
+</html>

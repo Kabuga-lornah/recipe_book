@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Breakfast Ingredients</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        padding: 0;
+        background-color: #f8f8f8;
+      }
+      h1 {
+        color: purple;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      /* Card Styling */
+      .ingredient-section {
+        display: none; /* Hide all sections by default */
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin: 20px auto;
+        padding: 20px;
+        max-width: 600px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .ingredient-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      }
+
+      .ingredient-section h2 {
+        color: purple;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.8em;
+      }
+
+      .ingredient-section ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .ingredient-section li {
+        background-color: #f9f9f9;
+        margin-bottom: 10px;
+        padding: 10px;
+        border-radius: 5px;
+        border-left: 4px solid purple;
+        font-size: 1em;
+        color: #333;
+        transition: background-color 0.3s ease;
+      }
+
+      .ingredient-section li:hover {
+        background-color: #e8e8e8;
+      }
+
+      /* Center the card on the page */
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+   <!-- Navbar -->
+   <nav class="navbar">
+    <div class="navbar-container">
+      <div class="navbar-logo">
+        <img src="images/logo.png" alt="logo" />
+      </div>
+      <ul class="navbar-links">
+        <li><a href="home.html" class="active">HOME</a></li>
+        <li class="dropdown">
+          <a href="#">RECIPES</a>
+          <div class="dropdown-content">
+            <a href="breakfast.html">Breakfast</a>
+            <a href="lunch.html">Lunch</a>
+            <a href="dinner.html">Dinner</a>
+          </div>
+        </li>
+        <li><a href="personal-recipe-book.html">MY RECIPES</a></li>
+      </ul>
+      <a href="signuplogin.html"><i class="fa-regular fa-user"></i></a>
+      <i class="fa-solid fa-magnifying-glass"></i>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+    </div>
+    <hr>
+  </nav>
+    <div class="container">
+      <h1>Breakfast Ingredients</h1>
+
+      <!-- Ingredients for Top Rated Breakfast Recipes -->
+      <div id="springyBlueberryLemonBread" class="ingredient-section">
+        <h2>Springy Blueberry Lemon Bread</h2>
+        <ul>
+          <li>1 1/2 cups all-purpose flour</li>
+          <li>1 teaspoon baking powder</li>
+          <li>1/2 teaspoon baking soda</li>
+          <li>1/4 teaspoon salt</li>
+          <li>1/2 cup unsalted butter, softened</li>
+          <li>1 cup granulated sugar</li>
+          <li>2 large eggs</li>
+          <li>1/2 cup plain Greek yogurt</li>
+          <li>1 tablespoon lemon zest</li>
+          <li>1/4 cup fresh lemon juice</li>
+          <li>1 cup fresh blueberries</li>
+        </ul>
+      </div>
+
+      <div id="lemonPoppyseedZucchiniMuffins" class="ingredient-section">
+        <h2>Lemon Poppyseed Zucchini Muffins</h2>
+        <ul>
+          <li>2 cups all-purpose flour</li>
+          <li>1/2 teaspoon baking powder</li>
+          <li>1/2 teaspoon baking soda</li>
+          <li>1/4 teaspoon salt</li>
+          <li>1/2 cup unsalted butter, melted</li>
+          <li>3/4 cup granulated sugar</li>
+          <li>2 large eggs</li>
+          <li>1/2 cup plain Greek yogurt</li>
+          <li>1 tablespoon lemon zest</li>
+          <li>1/4 cup fresh lemon juice</li>
+          <li>1 cup grated zucchini</li>
+          <li>1 tablespoon poppy seeds</li>
+        </ul>
+      </div>
+
+      <div id="eggCroissantBrunchBake" class="ingredient-section">
+        <h2>Egg and Croissant Brunch Bake</h2>
+        <ul>
+          <li>6 croissants, torn into pieces</li>
+          <li>1 cup cooked ham, diced</li>
+          <li>1 cup shredded cheddar cheese</li>
+          <li>6 large eggs</li>
+          <li>2 cups milk</li>
+          <li>1 teaspoon Dijon mustard</li>
+          <li>1/2 teaspoon salt</li>
+          <li>1/4 teaspoon black pepper</li>
+        </ul>
+      </div>
+
+      <div id="cookieDoughEnergyBites" class="ingredient-section">
+        <h2>Cookie Dough Energy Bites</h2>
+        <ul>
+          <li>1 cup rolled oats</li>
+          <li>1/2 cup peanut butter</li>
+          <li>1/4 cup honey</li>
+          <li>1/4 cup mini chocolate chips</li>
+          <li>1 teaspoon vanilla extract</li>
+          <li>1/4 teaspoon salt</li>
+        </ul>
+      </div>
+
+      <!-- Ingredients for Healthy Breakfast Recipes -->
+      <div id="oatBran" class="ingredient-section">
+        <h2>How You Should Be Doing Oat</h2>
+        <ul>
+          <li>1 cup oat bran</li>
+          <li>2 cups water or milk</li>
+          <li>1/4 teaspoon salt</li>
+          <li>1 tablespoon honey or maple syrup</li>
+          <li>1/4 cup fresh berries</li>
+          <li>1 tablespoon chopped nuts</li>
+        </ul>
+      </div>
+
+      <div id="mapleQuinoaGranola" class="ingredient-section">
+        <h2>Maple Quinoa Granola</h2>
+        <ul>
+          <li>1 cup quinoa, rinsed and drained</li>
+          <li>1/2 cup rolled oats</li>
+          <li>1/4 cup maple syrup</li>
+          <li>2 tablespoons coconut oil, melted</li>
+          <li>1/2 teaspoon cinnamon</li>
+          <li>1/4 teaspoon salt</li>
+          <li>1/2 cup dried cranberries</li>
+          <li>1/4 cup chopped almonds</li>
+        </ul>
+      </div>
+
+      <div id="oatmilkHoneyLatte" class="ingredient-section">
+        <h2>Oatmilk Honey Latte</h2>
+        <ul>
+          <li>1 cup oat milk</li>
+          <li>1 shot espresso or 1/2 cup strong coffee</li>
+          <li>1 tablespoon honey</li>
+          <li>1/4 teaspoon vanilla extract</li>
+        </ul>
+      </div>
+
+      <div id="springyVegetableQuiche" class="ingredient-section">
+        <h2>Springy Vegetable Quiche</h2>
+        <ul>
+          <li>1 pie crust</li>
+          <li>1 cup chopped vegetables (e.g., spinach, bell peppers, mushrooms)</li>
+          <li>4 large eggs</li>
+          <li>1 cup milk</li>
+          <li>1/2 cup shredded cheese</li>
+          <li>1/2 teaspoon salt</li>
+          <li>1/4 teaspoon black pepper</li>
+        </ul>
+      </div>
+
+      <!-- Ingredients for Breakfast Casserole Recipes -->
+      <div id="biscuitsAndGravyEggBake" class="ingredient-section">
+        <h2>Biscuits and Gravy Egg Bake</h2>
+        <ul>
+          <li>6 biscuits, cut into pieces</li>
+          <li>1 cup cooked sausage</li>
+          <li>1 cup shredded cheddar cheese</li>
+          <li>6 large eggs</li>
+          <li>2 cups milk</li>
+          <li>1/2 teaspoon salt</li>
+          <li>1/4 teaspoon black pepper</li>
+        </ul>
+      </div>
+
+      <div id="ricottaBerryFrenchToastCasserole" class="ingredient-section">
+        <h2>Ricotta Berry French Toast Casserole</h2>
+        <ul>
+          <li>6 slices bread, cubed</li>
+          <li>1 cup ricotta cheese</li>
+          <li>1 cup mixed berries</li>
+          <li>4 large eggs</li>
+          <li>1 cup milk</li>
+          <li>1/4 cup maple syrup</li>
+          <li>1 teaspoon vanilla extract</li>
+        </ul>
+      </div>
+
+      <div id="theBestMigas" class="ingredient-section">
+        <h2>The Best Migas</h2>
+        <ul>
+          <li>4 large eggs</li>
+          <li>1/2 cup tortilla chips, crushed</li>
+          <li>1/2 cup diced tomatoes</li>
+          <li>1/4 cup diced onions</li>
+          <li>1/4 cup shredded cheese</li>
+          <li>1 tablespoon olive oil</li>
+          <li>1/4 teaspoon salt</li>
+          <li>1/4 teaspoon black pepper</li>
+        </ul>
+      </div>
+
+      <script>
+        // Get the recipe ID from the URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const recipeId = urlParams.get('recipe');
+
+        // If a recipe ID is found, display the corresponding section
+        if (recipeId) {
+          const recipeSection = document.getElementById(recipeId);
+          if (recipeSection) {
+            recipeSection.style.display = 'block'; // Show the section
+          }
+        }
+      </script>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+          <!-- Footer Links -->
+          <div class="footer-links">
+            <a href="about.html">About Us</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+          </div>
+  
+          <!-- Social Media Icons -->
+          <div class="social-icons">
+            <a href="https://facebook.com" target="_blank"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a href="https://twitter.com" target="_blank"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a href="https://instagram.com" target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://pinterest.com" target="_blank"
+              ><i class="fab fa-pinterest"></i
+            ></a>
+          </div>
+  <hr>
+          <!-- Copyright Notice -->
+          <div class="footer-bottom">
+            &copy; 2023 Recipe Book. All rights reserved.
+          </div>
+        </div>
+      </footer>
+  </body>
+</html>

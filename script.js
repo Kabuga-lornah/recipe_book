@@ -36,3 +36,31 @@ function setActiveLink() {
 
 // Call the function when the page loads
 window.onload = setActiveLink;
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdown = document.querySelector('.dropdown');
+  
+    if (dropdown) { // Check if the dropdown exists
+      dropdown.addEventListener('click', function(e) {
+          e.stopPropagation(); // Prevent the click from closing the dropdown immediately
+          this.classList.toggle('active'); // Toggle a class to control the dropdown
+      });
+  
+      // Close the dropdown when clicking outside
+      document.addEventListener('click', function(e) {
+          if (!dropdown.contains(e.target)) {
+              dropdown.classList.remove('active');
+          }
+      });
+    }
+  });
+
+  function toggleMenu() {
+    const navbarLinks = document.querySelector('.navbar-links');
+    navbarLinks.classList.toggle('active');
+  }
+  
+  
